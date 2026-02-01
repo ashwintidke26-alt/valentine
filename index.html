@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #f7c9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  position: relative;
+}
+
+h2 { margin-bottom: 25px; }
+
+button {
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #ff3b6f;
+  color: white;
+}
+
+#no {
+  background: #eee;
+  position: absolute;
+}
+
+.fullscreen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h2>Madam, will you be my Valentine? 💖</h2>
+  <button id="yes">Yes</button>
+  <button id="no">No</button>
+</div>
+
+<div class="fullscreen" id="loveScreen">
+  <img src="love-image.png" alt="Love">
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const card = document.getElementById("card");
+const screen = document.getElementById("loveScreen");
+
+function moveNo() {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+// NO runs away forever 😈
+noBtn.addEventListener("mouseenter", moveNo);
+noBtn.addEventListener("click", moveNo);
+
+// YES shows image ❤️
+yesBtn.onclick = () => {
+  card.style.display = "none";
+  screen.style.display = "flex";
+};
+</script>
+
+</body>
+</html>
